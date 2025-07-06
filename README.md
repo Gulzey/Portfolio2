@@ -1,4 +1,6 @@
-# Portfolio site https://guledabdi3d.vercel.app/
+# Portfolio site 
+
+This site is live now at: https://guledabdi.vercel.app/
 
 A modern, interactive portfolio website built with React, TypeScript, and Tailwind CSS. Features smooth animations, dark mode toggle, and responsive design.
 
