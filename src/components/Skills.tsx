@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Code, Database, Palette, Cloud, Smartphone, Globe } from 'lucide-react';
+import { Code, Database, Palette, Smartphone, Globe } from 'lucide-react';
 
 interface Skill {
   name: string;
@@ -30,10 +30,6 @@ const Skills: React.FC = () => {
     { name: 'MongoDB', level: 80, category: 'database', icon: <Database size={24} />, color: 'from-green-500 to-green-600' },
     { name: 'MySQL', level: 75, category: 'database', icon: <Database size={24} />, color: 'from-blue-500 to-blue-600' },
     
-    // Cloud & DevOps
-    { name: 'Docker', level: 70, category: 'cloud', icon: <Cloud size={24} />, color: 'from-blue-500 to-blue-600' },
-    { name: 'Git', level: 90, category: 'cloud', icon: <Code size={24} />, color: 'from-orange-500 to-red-500' },
-    
     // Mobile
     { name: 'React Native', level: 70, category: 'mobile', icon: <Smartphone size={24} />, color: 'from-blue-500 to-cyan-500' },
     
@@ -46,7 +42,6 @@ const Skills: React.FC = () => {
     { id: 'frontend', name: 'Frontend', icon: <Palette size={20} /> },
     { id: 'backend', name: 'Backend', icon: <Code size={20} /> },
     { id: 'database', name: 'Database', icon: <Database size={20} /> },
-    { id: 'cloud', name: 'Cloud & DevOps', icon: <Cloud size={20} /> },
     { id: 'mobile', name: 'Mobile', icon: <Smartphone size={20} /> },
     { id: 'other', name: 'Other', icon: <Globe size={20} /> },
   ];
@@ -158,11 +153,11 @@ const Skills: React.FC = () => {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">12+</div>
+              <div className="text-3xl font-bold text-white">10+</div>
               <div className="text-sm text-gray-400">Technologies</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">5+</div>
+              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">4+</div>
               <div className="text-sm text-dark-600 dark:text-dark-400">Categories</div>
             </div>
             <div className="text-center">
