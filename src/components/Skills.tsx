@@ -1,6 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Database, Palette, Smartphone, Globe } from 'lucide-react';
+
+const getSummaryTextColor = () => {
+  if (typeof window !== 'undefined') {
+    const lightChecked = document.querySelector('input[value="light"]:checked');
+    if (lightChecked) {
+      return '#1a1a1a';
+    }
+  }
+  return '#fff';
+};
 
 interface Skill {
   name: string;
@@ -12,6 +22,12 @@ interface Skill {
 
 const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [summaryColor, setSummaryColor] = useState(getSummaryTextColor());
+  useEffect(() => {
+    const updateColor = () => setSummaryColor(getSummaryTextColor());
+    document.body.addEventListener('change', updateColor, true);
+    return () => document.body.removeEventListener('change', updateColor, true);
+  }, []);
 
   const skills: Skill[] = [
     // Frontend
@@ -108,7 +124,7 @@ const Skills: React.FC = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02, y: -5 }}
-              className="bg-gray-900/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800/70"
+              className="bg-transparent backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800/70"
             >
               <div className="text-center mb-4">
                 <div className={`inline-flex p-3 rounded-lg bg-gray-800/90 text-white mb-3`}>
@@ -121,6 +137,7 @@ const Skills: React.FC = () => {
                   <p className="text-sm text-gray-400 capitalize">
                     {skill.category}
                   </p>
+                  <span className="italic text-sm text-gray-400 block mt-2">#{skill.name}</span>
                 </div>
               </div>
               
@@ -141,34 +158,6 @@ const Skills: React.FC = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Skills Summary */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white">10+</div>
-              <div className="text-sm text-gray-400">Technologies</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">4+</div>
-              <div className="text-sm text-dark-600 dark:text-dark-400">Categories</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">85%</div>
-              <div className="text-sm text-dark-600 dark:text-dark-400">Average Skill</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">∞</div>
-              <div className="text-sm text-dark-600 dark:text-dark-400">Learning</div>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

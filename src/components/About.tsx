@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, MapPin, Calendar, Mail, Phone } from 'lucide-react';
+
+const getHighlightTextColor = () => {
+  if (typeof window !== 'undefined') {
+    const lightChecked = document.querySelector('input[value="light"]:checked');
+    if (lightChecked) {
+      return '#1a1a1a';
+    }
+  }
+  return '#fff';
+};
 
 const About: React.FC = () => {
   const personalInfo = [
@@ -10,6 +20,13 @@ const About: React.FC = () => {
     { icon: <Mail size={20} />, label: 'Email', value: 'guled-abdi@outlook.com' },
     { icon: <Phone size={20} />, label: 'Phone', value: '07857760653' },
   ];
+
+  const [highlightColor, setHighlightColor] = useState(getHighlightTextColor());
+  useEffect(() => {
+    const updateColor = () => setHighlightColor(getHighlightTextColor());
+    document.body.addEventListener('change', updateColor, true);
+    return () => document.body.removeEventListener('change', updateColor, true);
+  }, []);
 
   return (
     <section id="about" className="py-20 relative">
@@ -22,9 +39,6 @@ const About: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-gradient mb-4">About Me</h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Get to know me better and discover what drives my passion for technology and design.
-          </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
@@ -54,32 +68,32 @@ const About: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 className="text-center"
               >
-                <div className="text-3xl font-bold text-white">1+</div>
-                <div className="text-sm text-gray-400">Years Experience</div>
+                <div className="text-3xl font-bold" style={{ color: highlightColor }}>1+</div>
+                <div className="text-sm" style={{ color: highlightColor }}>Years Experience</div>
               </motion.div>
               
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="text-center"
               >
-                <div className="text-3xl font-bold text-white">10+</div>
-                <div className="text-sm text-gray-400">Projects Completed</div>
+                <div className="text-3xl font-bold" style={{ color: highlightColor }}>10+</div>
+                <div className="text-sm" style={{ color: highlightColor }}>Projects Completed</div>
               </motion.div>
               
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="text-center"
               >
-                <div className="text-3xl font-bold text-white">12+</div>
-                <div className="text-sm text-gray-400">Technologies</div>
+                <div className="text-3xl font-bold" style={{ color: highlightColor }}>12+</div>
+                <div className="text-sm" style={{ color: highlightColor }}>Technologies</div>
               </motion.div>
               
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="text-center"
               >
-                <div className="text-3xl font-bold text-white">∞</div>
-                <div className="text-sm text-gray-400">Learning</div>
+                <div className="text-3xl font-bold" style={{ color: highlightColor }}>∞</div>
+                <div className="text-sm" style={{ color: highlightColor }}>Learning</div>
               </motion.div>
             </div>
           </motion.div>

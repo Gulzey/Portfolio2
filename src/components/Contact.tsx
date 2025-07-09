@@ -1,6 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
+
+const getHeaderTextColor = () => {
+  if (typeof window !== 'undefined') {
+    const lightChecked = document.querySelector('input[value="light"]:checked');
+    if (lightChecked) {
+      return '#1a1a1a';
+    }
+  }
+  return '#fff';
+};
 
 interface ContactInfo {
   icon: React.ReactNode;
@@ -19,22 +29,41 @@ const Contact: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [headerColor, setHeaderColor] = useState(getHeaderTextColor());
+  const [theme, setTheme] = useState('light');
+  useEffect(() => {
+    const getTheme = () => {
+      const checked = document.querySelector('input[name="theme"]:checked') as HTMLInputElement;
+      return checked ? checked.value : 'light';
+    };
+    setTheme(getTheme());
+    const handler = () => setTheme(getTheme());
+    document.body.addEventListener('change', handler, true);
+    return () => document.body.removeEventListener('change', handler, true);
+  }, []);
+  useEffect(() => {
+    const updateColor = () => setHeaderColor(getHeaderTextColor());
+    document.body.addEventListener('change', updateColor, true);
+    return () => document.body.removeEventListener('change', updateColor, true);
+  }, []);
+
+  const iconColor = theme === 'light' ? '#000' : '#fff';
 
   const contactInfo: ContactInfo[] = [
     {
-      icon: <Mail size={24} />,
+      icon: <Mail size={24} color={iconColor} />, 
       title: 'Email',
       value: 'guled-abdi@outlook.com',
       link: 'mailto:guled-abdi@outlook.com'
     },
     {
-      icon: <Phone size={24} />,
+      icon: <Phone size={24} color={iconColor} />, 
       title: 'Phone',
       value: '07857760653',
       link: 'tel:+447857760653'
     },
     {
-      icon: <MapPin size={24} />,
+      icon: <MapPin size={24} color={iconColor} />, 
       title: 'Location',
       value: 'Greater Bristol Area',
       link: 'https://maps.google.com'
@@ -107,7 +136,7 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-black mb-4">Get In Touch</h2>
+          <h2 className="text-4xl font-bold mb-4 text-gradient">Get In Touch</h2>
           <p className="text-lg text-black max-w-3xl mx-auto text-center">
             I'm always open to discussing new opportunities, interesting projects, or just having a chat.
           </p>
@@ -144,7 +173,7 @@ const Contact: React.FC = () => {
                   viewport={{ once: true }}
                   className="flex items-center justify-start gap-4"
                 >
-                  <div className="flex items-center justify-center p-3 bg-gray-800/80 backdrop-blur-sm rounded-lg text-gray-300 flex-shrink-0 w-12 h-12">
+                  <div className="flex items-center justify-center p-3 bg-transparent backdrop-blur-sm rounded-lg text-gray-300 flex-shrink-0 w-12 h-12">
                     {info.icon}
                   </div>
                   <div className="flex flex-col justify-center">
@@ -183,7 +212,7 @@ const Contact: React.FC = () => {
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.1, y: -2 }}
-                    className="p-3 bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-gray-300 hover:text-gray-200"
+                    className="p-3 bg-transparent backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-gray-300 hover:text-gray-200"
                   >
                     {social.icon}
                   </motion.a>
@@ -198,7 +227,7 @@ const Contact: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-gray-900/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-800/70"
+            className="bg-transparent backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-800/70"
           >
             <h3 className="text-2xl font-semibold text-white mb-6">
               Send Message
@@ -217,7 +246,7 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-gray-200 focus:border-transparent bg-gray-800 text-white placeholder-gray-500"
+                    className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-gray-200 focus:border-transparent bg-gray-800/40 text-white placeholder-gray-500"
                     placeholder="Your name"
                   />
                 </div>
@@ -233,7 +262,7 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-gray-200 focus:border-transparent bg-gray-800 text-white placeholder-gray-500"
+                    className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-gray-200 focus:border-transparent bg-gray-800/40 text-white placeholder-gray-500"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -250,7 +279,7 @@ const Contact: React.FC = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-gray-200 focus:border-transparent bg-gray-800 text-white placeholder-gray-500"
+                  className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-gray-200 focus:border-transparent bg-gray-800/40 text-white placeholder-gray-500"
                   placeholder="What's this about?"
                 />
               </div>
@@ -266,7 +295,7 @@ const Contact: React.FC = () => {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-gray-200 focus:border-transparent bg-gray-800 text-white placeholder-gray-500 resize-none"
+                  className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-gray-200 focus:border-transparent bg-gray-800/40 text-white placeholder-gray-500 resize-none"
                   placeholder="Tell me about your project or idea..."
                 />
               </div>
@@ -276,7 +305,12 @@ const Contact: React.FC = () => {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full flex items-center justify-center gap-2 px-8 py-3 bg-gray-800/90 hover:bg-gray-700/90 disabled:bg-gray-900/90 text-white rounded-lg font-medium transition-colors duration-200 shadow-lg hover:shadow-xl"
+                className={`w-full flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-medium transition-colors duration-200 shadow-lg hover:shadow-xl text-white
+                  ${theme === 'light' ? 'bg-blue-900 hover:bg-blue-800' : ''}
+                  ${theme === 'dark' ? 'bg-blue-400 hover:bg-blue-500 text-black' : ''}
+                  ${theme === 'dim' ? 'bg-pink-500 hover:bg-pink-400' : ''}
+                  disabled:opacity-60`
+                }
               >
                 {isSubmitting ? (
                   <>

@@ -122,7 +122,7 @@ const Projects: React.FC = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02, y: -5 }}
-              className="group relative bg-gray-900/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl hover:ring-2 hover:ring-gray-400/50 transition-all duration-300 border border-gray-800/70"
+              className="group relative bg-transparent backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl hover:ring-2 hover:ring-gray-400/50 transition-all duration-300 border border-gray-800/70"
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden">
@@ -178,9 +178,9 @@ const Projects: React.FC = () => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full"
+                      className="italic text-sm text-gray-400"
                     >
-                      {tech}
+                      #{tech}
                     </span>
                   ))}
                 </div>

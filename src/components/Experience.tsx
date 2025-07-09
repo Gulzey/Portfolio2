@@ -110,7 +110,7 @@ const Experience: React.FC = () => {
                 }`}>
                   <motion.div
                     whileHover={{ scale: 1.02, y: -5 }}
-                    className="bg-gray-900/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800/70"
+                    className="bg-transparent backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800/70"
                   >
                     {/* Header */}
                     <div className="text-center mb-4">
@@ -151,9 +151,9 @@ const Experience: React.FC = () => {
                       {experience.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-full"
+                          className="italic text-sm text-gray-400"
                         >
-                          {tech}
+                          #{tech}
                         </span>
                       ))}
                     </div>
