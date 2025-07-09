@@ -21,6 +21,8 @@ const Hero: React.FC = () => {
 
   useEffect(() => {
     const updateColor = () => setButtonTextColor(getButtonTextColor());
+    // Set color on mount (for SSR/first load)
+    updateColor();
     document.body.addEventListener('change', updateColor, true);
     return () => document.body.removeEventListener('change', updateColor, true);
   }, []);

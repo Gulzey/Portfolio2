@@ -119,9 +119,9 @@ const Projects: React.FC = () => {
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ type: 'spring', stiffness: 220, damping: 18, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02, y: -5 }}
+              whileHover={{ scale: 1.08 }}
               className="group relative bg-transparent backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl hover:ring-2 hover:ring-gray-400/50 transition-all duration-300 border border-gray-800/70"
             >
               {/* Project Image */}

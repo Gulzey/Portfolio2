@@ -24,6 +24,8 @@ const About: React.FC = () => {
   const [highlightColor, setHighlightColor] = useState(getHighlightTextColor());
   useEffect(() => {
     const updateColor = () => setHighlightColor(getHighlightTextColor());
+    // Set color on mount (for SSR/first load)
+    updateColor();
     document.body.addEventListener('change', updateColor, true);
     return () => document.body.removeEventListener('change', updateColor, true);
   }, []);

@@ -93,7 +93,7 @@ const Experience: React.FC = () => {
                 key={experience.id}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ type: 'spring', stiffness: 80, damping: 18, delay: index * 0.15 }}
                 viewport={{ once: true }}
                 className={`relative flex items-start ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
@@ -109,7 +109,8 @@ const Experience: React.FC = () => {
                   index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
                 }`}>
                   <motion.div
-                    whileHover={{ scale: 1.02, y: -5 }}
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ type: 'spring', stiffness: 220, damping: 18 }}
                     className="bg-transparent backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800/70"
                   >
                     {/* Header */}
