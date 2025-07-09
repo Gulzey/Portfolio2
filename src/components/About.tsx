@@ -70,7 +70,7 @@ const About: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 className="text-center"
               >
-                <div className="text-3xl font-bold" style={{ color: highlightColor }}>1+</div>
+                <div className="text-3xl font-bold" style={{ color: highlightColor }}>3+</div>
                 <div className="text-sm" style={{ color: highlightColor }}>Years Experience</div>
               </motion.div>
               
