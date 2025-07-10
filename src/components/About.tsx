@@ -31,14 +31,20 @@ const About: React.FC = () => {
   }, []);
 
   return (
-    <section id="about" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" style={{ 
+      padding: '50px 0 40px 0',
+      minHeight: 'auto',
+      display: 'flex',
+      alignItems: 'flex-start',
+      justifyContent: 'center'
+    }}>
+      <div className="w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <h2 className="text-4xl font-bold text-gradient mb-4">About Me</h2>
         </motion.div>

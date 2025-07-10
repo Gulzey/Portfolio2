@@ -17,22 +17,40 @@ const Hero: React.FC = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80; // Offset to account for any fixed elements
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
   return (
-    <section id="home" className="flex items-center justify-center relative overflow-hidden" style={{ paddingTop: 0, paddingBottom: 64 }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full">
+    <section id="home" className="flex items-center justify-center relative overflow-hidden" style={{ 
+      minHeight: '70vh',
+      padding: '0',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
+      <div className="w-full text-center relative z-10">
         {/* Theme Switcher at the top, centered */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 32 }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
           <ThemeSwitcher />
         </div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          style={{ 
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '40px',
+            alignItems: 'center'
+          }}
         >
           {/* Greeting */}
           <motion.h2
@@ -96,8 +114,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
-            className="mt-12"
-            style={{ marginBottom: 64 }}
+            style={{ marginTop: '60px' }}
           >
             <motion.button
               animate={{ y: [0, 10, 0] }}

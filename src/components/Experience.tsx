@@ -77,12 +77,32 @@ const Experience: React.FC = () => {
       ],
       technologies: ['JavaScript', 'React', 'Web Development', 'Responsive Design', 'Cross-browser Compatibility'],
       icon: <GraduationCap size={24} />
+    },
+    {
+      id: '5',
+      type: 'education',
+      title: 'Secondary/A-Levels',
+      company: 'Bristol Brunel Academy & City of Bristol College',
+      location: 'Bristol, UK',
+      period: '2011 - 2019',
+      description: [
+        'Secondary school at Bristol Brunel Academy. Passed everything with strong grasp of maths and english',
+        'Did A-levels at City of Bristol College Bristol studying Maths, Physics and Biology'
+      ],
+      technologies: ['Mathematics', 'English', 'Physics', 'Biology'],
+      icon: <GraduationCap size={24} />
     }
   ];
 
   return (
-    <section id="experience" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" style={{ 
+      padding: '40px 0',
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
+      <div className="w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

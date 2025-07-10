@@ -94,6 +94,20 @@ const App: React.FC = () => {
           <a
             key={item.label}
             href={item.href}
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.querySelector(item.href);
+              if (element) {
+                const offset = 80;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+              }
+            }}
             style={{
               color: 'var(--c-content)',
               textDecoration: 'none',
@@ -103,6 +117,7 @@ const App: React.FC = () => {
               textAlign: 'left',
               width: '100%',
               padding: '4px 0',
+              cursor: 'pointer',
             }}
           >
             {item.label}
@@ -110,8 +125,25 @@ const App: React.FC = () => {
         ))}
       </nav>
       {/* Main Content */}
-      <main style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', marginLeft: navOpen ? '180px' : '0', transition: 'margin-left 0.3s' }}>
-        <div style={{ marginTop: '160px', width: '100%', maxWidth: '900px' }}>
+      <main style={{ 
+        flex: 1, 
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center', 
+        justifyContent: 'flex-start', 
+        marginLeft: navOpen ? '180px' : '0', 
+        transition: 'margin-left 0.3s',
+        minHeight: '100vh',
+        width: '100%'
+      }}>
+        <div style={{ 
+          width: '100%', 
+          maxWidth: '1200px',
+          padding: '0 20px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0'
+        }}>
           <Hero />
           <About />
           <Experience />
