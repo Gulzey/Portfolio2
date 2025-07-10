@@ -129,13 +129,17 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" style={{ 
       padding: '0',
-      minHeight: '100vh',
+      minHeight: 'auto',
       display: 'flex',
       alignItems: 'flex-start',
       justifyContent: 'center',
       marginTop: '0'
     }}>
-      <div className="w-full" style={{ paddingTop: '20px' }}>
+      <div className="w-full" style={{ 
+        paddingTop: '20px',
+        paddingLeft: '20px',
+        paddingRight: '20px'
+      }}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -143,26 +147,26 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4 text-gradient">Get In Touch</h2>
-          <p className="text-lg text-black max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl lg:text-4xl font-bold mb-4 text-gradient">Get In Touch</h2>
+          <p className="text-base lg:text-lg text-black max-w-3xl mx-auto text-center">
             I'm always open to discussing new opportunities, interesting projects, or just having a chat.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6 lg:space-y-8"
           >
             <div className="text-center">
-              <h3 className="text-2xl font-semibold text-black mb-6">
+              <h3 className="text-xl lg:text-2xl font-semibold text-black mb-6">
                 Let's Connect
               </h3>
-              <p className="text-black leading-relaxed mb-8">
+              <p className="text-sm lg:text-base text-black leading-relaxed mb-8">
                 Feel free to reach out if you'd like to collaborate on a project, 
                 discuss potential opportunities, or just want to say hello. I'm always 
                 excited to hear about new ideas and opportunities.
@@ -170,7 +174,7 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Contact Details */}
-            <div className="space-y-6">
+            <div className="space-y-4 lg:space-y-6">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={info.title}
@@ -184,18 +188,18 @@ const Contact: React.FC = () => {
                     {info.icon}
                   </div>
                   <div className="flex flex-col justify-center">
-                    <h4 className="font-medium text-black">
+                    <h4 className="text-sm lg:text-base font-medium text-black">
                       {info.title}
                     </h4>
                     {info.link ? (
                       <a
                         href={info.link}
-                        className="text-black hover:text-gray-800 hover:underline max-w-xs truncate block"
+                        className="text-xs lg:text-sm text-black hover:text-gray-800 hover:underline max-w-xs truncate block"
                       >
                         {info.value}
                       </a>
                     ) : (
-                      <p className="text-black max-w-xs truncate block">{info.value}</p>
+                      <p className="text-xs lg:text-sm text-black max-w-xs truncate block">{info.value}</p>
                     )}
                   </div>
                 </motion.div>
@@ -204,7 +208,7 @@ const Contact: React.FC = () => {
 
             {/* Social Links */}
             <div className="text-center">
-              <h4 className="text-lg font-semibold text-black mb-4">
+              <h4 className="text-base lg:text-lg font-semibold text-black mb-4">
                 Follow Me
               </h4>
               <div className="flex gap-4 justify-center">
@@ -234,13 +238,13 @@ const Contact: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-transparent backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-800/70"
+            className="bg-transparent backdrop-blur-sm rounded-xl p-6 lg:p-8 shadow-lg border border-gray-800/70"
           >
-            <h3 className="text-2xl font-semibold text-white mb-6">
+            <h3 className="text-xl lg:text-2xl font-semibold text-white mb-6">
               Send Message
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
