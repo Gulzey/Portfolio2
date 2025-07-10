@@ -142,7 +142,6 @@ const Skills: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ type: 'spring', stiffness: 220, damping: 18, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.08 }}
               className="bg-transparent backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800/70"
             >
               <div className="text-center mb-4">

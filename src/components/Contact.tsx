@@ -128,19 +128,20 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" style={{ 
-      padding: '80px 0',
+      padding: '0',
       minHeight: '100vh',
       display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
+      alignItems: 'flex-start',
+      justifyContent: 'center',
+      marginTop: '0'
     }}>
-      <div className="w-full">
+      <div className="w-full" style={{ paddingTop: '20px' }}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold mb-4 text-gradient">Get In Touch</h2>
           <p className="text-lg text-black max-w-3xl mx-auto text-center">

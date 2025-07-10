@@ -98,7 +98,7 @@ const App: React.FC = () => {
               e.preventDefault();
               const element = document.querySelector(item.href);
               if (element) {
-                const offset = 80;
+                const offset = 10;
                 const elementPosition = element.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - offset;
                 
@@ -142,7 +142,8 @@ const App: React.FC = () => {
           padding: '0 20px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '0'
+          gap: '0',
+          marginBottom: '0'
         }}>
           <Hero />
           <About />

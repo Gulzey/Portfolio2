@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80; // Offset to account for any fixed elements
+      const offset = 20; // Reduced offset for better alignment
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       

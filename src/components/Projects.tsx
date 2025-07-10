@@ -102,11 +102,12 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" style={{ 
-      padding: '80px 0',
-      minHeight: '100vh',
+      padding: '5px 0 40px 0',
+      minHeight: 'auto',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      marginBottom: '0'
     }}>
       <div className="w-full">
         <motion.div
@@ -114,7 +115,7 @@ const Projects: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-4"
         >
           <h2 className="text-4xl font-bold text-gradient mb-4">Featured Projects</h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto text-center">
@@ -130,7 +131,7 @@ const Projects: React.FC = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-0"
         >
           {projects.map((project, index) => (
             <motion.div
@@ -139,7 +140,6 @@ const Projects: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ type: 'spring', stiffness: 220, damping: 18, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.08 }}
               className="group relative bg-transparent backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl hover:ring-2 hover:ring-gray-400/50 transition-all duration-300 border border-gray-800/70"
             >
               {/* Project Image */}
