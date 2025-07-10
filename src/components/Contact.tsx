@@ -212,7 +212,7 @@ const Contact: React.FC = () => {
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.1, y: -2 }}
-                    className="p-3 bg-transparent backdrop-blur-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-gray-300 hover:text-gray-200"
+                    className="glass-button p-3"
                   >
                     {social.icon}
                   </motion.a>
