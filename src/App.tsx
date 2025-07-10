@@ -70,23 +70,19 @@ const App: React.FC = () => {
       >
         <button
           onClick={() => setNavOpen((open) => !open)}
+          className="glass-button"
           style={{
             position: 'absolute',
             top: 20,
             right: -20,
-            background: theme === 'light' ? '#1e3a8a' : theme === 'dark' ? '#60a5fa' : '#ec4899',
-            border: 'none',
-            borderRadius: '50%',
-            width: 32,
-            height: 32,
+            width: 40,
+            height: 40,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
             cursor: 'pointer',
             zIndex: 1100,
             padding: 0,
-            transition: 'background 0.2s',
           }}
           aria-label={navOpen ? 'Collapse navbar' : 'Expand navbar'}
         >

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, GraduationCap, Calendar, MapPin, ExternalLink } from 'lucide-react';
 
@@ -15,6 +15,19 @@ interface ExperienceItem {
 }
 
 const Experience: React.FC = () => {
+  const [theme, setTheme] = useState('light');
+  
+  useEffect(() => {
+    const getTheme = () => {
+      const checked = document.querySelector('input[name="theme"]:checked') as HTMLInputElement;
+      return checked ? checked.value : 'light';
+    };
+    setTheme(getTheme());
+    const handler = () => setTheme(getTheme());
+    document.body.addEventListener('change', handler, true);
+    return () => document.body.removeEventListener('change', handler, true);
+  }, []);
+
   const experiences: ExperienceItem[] = [
 
     {
@@ -115,7 +128,12 @@ const Experience: React.FC = () => {
                   >
                     {/* Header */}
                     <div className="text-center mb-4">
-                      <div className={`inline-flex p-3 rounded-lg bg-gray-800/90 text-white mb-4`}>
+                      <div 
+                        className="inline-flex mb-4"
+                        style={{
+                          color: theme === 'light' ? '#1e3a8a' : theme === 'dark' ? '#60a5fa' : '#ec4899'
+                        }}
+                      >
                         {experience.icon}
                       </div>
                       <div>
@@ -125,7 +143,12 @@ const Experience: React.FC = () => {
                         <p className="text-gray-300 font-medium mb-2">
                           {experience.company}
                         </p>
-                        <div className="flex flex-wrap gap-4 text-sm text-gray-400 justify-center">
+                        <div 
+                          className="flex flex-wrap gap-4 text-sm justify-center"
+                          style={{
+                            color: theme === 'light' ? '#1e3a8a' : theme === 'dark' ? '#60a5fa' : '#ec4899'
+                          }}
+                        >
                           <div className="flex items-center gap-1">
                             <MapPin size={16} />
                             {experience.location}
@@ -152,7 +175,7 @@ const Experience: React.FC = () => {
                       {experience.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="italic text-sm text-gray-400"
+                          className="italic text-sm theme-tech-tag"
                         >
                           #{tech}
                         </span>
@@ -176,7 +199,7 @@ const Experience: React.FC = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 mx-auto px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors duration-200 shadow-lg hover:shadow-xl"
+            className="glass-button flex items-center gap-2 mx-auto"
           >
             <ExternalLink size={20} />
             Download Full Resume

@@ -23,10 +23,23 @@ interface Skill {
 const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [summaryColor, setSummaryColor] = useState(getSummaryTextColor());
+  const [theme, setTheme] = useState('light');
+  
   useEffect(() => {
     const updateColor = () => setSummaryColor(getSummaryTextColor());
     document.body.addEventListener('change', updateColor, true);
     return () => document.body.removeEventListener('change', updateColor, true);
+  }, []);
+
+  useEffect(() => {
+    const getTheme = () => {
+      const checked = document.querySelector('input[name="theme"]:checked') as HTMLInputElement;
+      return checked ? checked.value : 'light';
+    };
+    setTheme(getTheme());
+    const handler = () => setTheme(getTheme());
+    document.body.addEventListener('change', handler, true);
+    return () => document.body.removeEventListener('change', handler, true);
   }, []);
 
   const skills: Skill[] = [
@@ -96,10 +109,10 @@ const Skills: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+              className={`glass-button flex items-center gap-2 ${
                 activeCategory === category.id
                   ? 'bg-primary-600 text-white shadow-lg'
-                  : 'bg-gray-800/80 backdrop-blur-sm text-gray-300 hover:bg-gray-700/80'
+                  : ''
               }`}
             >
               {category.icon}
@@ -127,7 +140,12 @@ const Skills: React.FC = () => {
               className="bg-transparent backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800/70"
             >
               <div className="text-center mb-4">
-                <div className={`inline-flex p-3 rounded-lg bg-gray-800/90 text-white mb-3`}>
+                <div 
+                  className="inline-flex mb-3"
+                  style={{
+                    color: theme === 'light' ? '#1e3a8a' : theme === 'dark' ? '#60a5fa' : '#ec4899'
+                  }}
+                >
                   {skill.icon}
                 </div>
                 <div>

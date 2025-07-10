@@ -56,7 +56,7 @@ const Header: React.FC = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors duration-200"
+              className="md:hidden glass-button p-2"
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>

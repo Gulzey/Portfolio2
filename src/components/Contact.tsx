@@ -305,12 +305,7 @@ const Contact: React.FC = () => {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={`w-full flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-medium transition-colors duration-200 shadow-lg hover:shadow-xl text-white
-                  ${theme === 'light' ? 'bg-blue-900 hover:bg-blue-800' : ''}
-                  ${theme === 'dark' ? 'bg-blue-400 hover:bg-blue-500 text-black' : ''}
-                  ${theme === 'dim' ? 'bg-pink-500 hover:bg-pink-400' : ''}
-                  disabled:opacity-60`
-                }
+                className="glass-button w-full flex items-center justify-center gap-2 disabled:opacity-60"
               >
                 {isSubmitting ? (
                   <>

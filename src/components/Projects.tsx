@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Eye } from 'lucide-react';
 
@@ -15,6 +15,18 @@ interface Project {
 }
 
 const Projects: React.FC = () => {
+  const [theme, setTheme] = useState('light');
+  
+  useEffect(() => {
+    const getTheme = () => {
+      const checked = document.querySelector('input[name="theme"]:checked') as HTMLInputElement;
+      return checked ? checked.value : 'light';
+    };
+    setTheme(getTheme());
+    const handler = () => setTheme(getTheme());
+    document.body.addEventListener('change', handler, true);
+    return () => document.body.removeEventListener('change', handler, true);
+  }, []);
 
   const projects: Project[] = [
     {
@@ -144,7 +156,7 @@ const Projects: React.FC = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 bg-gray-800/90 backdrop-blur-sm rounded-lg text-white hover:bg-gray-700/90 transition-colors duration-200"
+                      className="p-2 backdrop-blur-sm rounded-lg transition-colors duration-200 theme-action-button"
                     >
                       <ExternalLink size={16} />
                     </motion.a>
@@ -156,7 +168,7 @@ const Projects: React.FC = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 bg-gray-800/90 backdrop-blur-sm rounded-lg text-white hover:bg-gray-700/90 transition-colors duration-200"
+                      className="p-2 backdrop-blur-sm rounded-lg transition-colors duration-200 theme-action-button"
                     >
                       <Github size={16} />
                     </motion.a>
@@ -178,7 +190,7 @@ const Projects: React.FC = () => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="italic text-sm text-gray-400"
+                      className="italic text-sm theme-tech-tag"
                     >
                       #{tech}
                     </span>

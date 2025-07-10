@@ -3,29 +3,8 @@ import { motion } from 'framer-motion';
 import { ChevronDown, Download, Mail } from 'lucide-react';
 import ThemeSwitcher from './ThemeSwitcher';
 
-const getButtonTextColor = () => {
-  if (typeof window !== 'undefined') {
-    // Check for light mode
-    const lightChecked = document.querySelector('input[value="light"]:checked');
-    if (lightChecked) {
-      return '#1a1a1a';
-    }
-  }
-  // Default to white for dark/dim
-  return '#fff';
-};
-
 const Hero: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [buttonTextColor, setButtonTextColor] = useState(getButtonTextColor());
-
-  useEffect(() => {
-    const updateColor = () => setButtonTextColor(getButtonTextColor());
-    // Set color on mount (for SSR/first load)
-    updateColor();
-    document.body.addEventListener('change', updateColor, true);
-    return () => document.body.removeEventListener('change', updateColor, true);
-  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -96,7 +75,7 @@ const Hero: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection('#contact')}
-              className="flex items-center gap-2 px-6 sm:px-8 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition-colors duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto"
+              className="glass-button w-full sm:w-auto"
             >
               <Mail size={20} />
               Get In Touch
@@ -105,8 +84,7 @@ const Hero: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-6 sm:px-8 py-3 border-2 border-gray-600 hover:bg-gray-600 rounded-lg font-medium transition-all duration-200 w-full sm:w-auto"
-              style={{ color: buttonTextColor }}
+              className="glass-button w-full sm:w-auto"
             >
               <Download size={20} />
               Download CV
