@@ -75,13 +75,13 @@ const Projects: React.FC = () => {
     },
     {
       id: '5',
-      title: 'Portfolio Website',
-      description: 'A modern, responsive portfolio website with smooth animations and interactive elements.',
-      image: '/images/Port.png',
-      category: 'frontend',
-      technologies: ['React', 'Framer Motion', 'Tailwind CSS', 'TypeScript'],
-      liveUrl: 'https://guledabdi.vercel.app/',
-      githubUrl: 'https://github.com/Gulzey/Portfolio2',
+      title: 'Blog/Forum',
+      description: 'A social blog forum similar to Reddit or Quora where you can post, follow, comment, and reply to people. Built with the MERN stack (React, Express, Node.js, MongoDB). This project was a collaboration with my friend Abdi Suufi, who did the backend while I did the frontend.',
+      image: '/images/Tiny.png',
+      category: 'fullstack',
+      technologies: ['React', 'Express', 'Node.js', 'MongoDB', 'MERN'],
+      liveUrl: 'https://tiny-bros-blog.vercel.app/',
+      githubUrl: 'https://github.com/Abdi-Suufi/TinyBrosBlog',
       featured: false
     },
     {
