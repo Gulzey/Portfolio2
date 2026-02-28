@@ -64,13 +64,13 @@ const Projects: React.FC = () => {
     },
     {
       id: '4',
-      title: 'G3ART',
-      description: 'This site is an experimental project that has been created using ReactJS and threeJS. It showcases an artbook that holds my favorite pieces of art. Mainly illustrations from my top manga. This project is still in production and i am having fun with threeJS.',
-      image: '/images/ART.png',
+      title: 'Henna By Hamda',
+      description: ' A gallery style company page for a client created using ReactJS and threeJS. It showcases a range of henna pieces that the client wanted showcased. ThE Client was satisfied and informed me it boosted her visibility. T.',
+      image: '/images/Henna.png',
       category: 'frontend',
-      technologies: ['ReactJS', 'Vite', 'ThreeJS'],
-      liveUrl: 'https://g3art.vercel.app/',
-      githubUrl: 'https://github.com/Gulzey/Artbook',
+      technologies: ['ReactJS', 'Vite', 'CSS', 'Lightbox library'],
+      liveUrl: 'https://hennabyhamda.vercel.app/',
+      githubUrl: 'https://github.com/Gulzey/Henna',
       featured: true
     },
     {
