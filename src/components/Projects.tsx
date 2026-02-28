@@ -42,28 +42,6 @@ const Projects: React.FC = () => {
     },
     {
       id: '2',
-      title: 'CycleNav',
-      description: 'For my dissertation, I developed a navigation web service tailored specifically for cyclists. While established services like Google Maps exist, my aim was to create a platform that caters to the unique needs of the cycling community.',
-      image: '/images/CYCLENAV.png',
-      category: 'frontend',
-      technologies: ['JavaScript', 'MapBox API', 'Bootstrap'],
-      liveUrl: 'https://cyclenav.netlify.app/',
-      githubUrl: 'https://github.com/Gulzey/Final-Year-Project',
-      featured: true
-    },
-    {
-      id: '3',
-      title: 'AdhanAlert',
-      description: 'A user-friendly website designed to help users track prayer times in their city. Utilizing the Aladhan API and Geolocation API, it accurately displays prayer schedules based on the user\'s location. It will soon become a web application through ReactJS.',
-      image: '/images/ADHAN.png',
-      category: 'frontend',
-      technologies: ['JavaScript', 'AladhanAPI', 'Bootstrap'],
-      liveUrl: 'https://adhanalert.vercel.app/',
-      githubUrl: 'https://github.com/Gulzey/AdhanAlert',
-      featured: false
-    },
-    {
-      id: '4',
       title: 'Henna By Hamda',
       description: ' A gallery style company page for a client created using ReactJS and threeJS. It showcases a range of henna pieces that the client wanted showcased. ThE Client was satisfied and informed me it boosted her visibility. T.',
       image: '/images/Henna.png',
@@ -74,7 +52,7 @@ const Projects: React.FC = () => {
       featured: true
     },
     {
-      id: '5',
+      id: '3',
       title: 'Blog/Forum',
       description: 'A social blog forum similar to Reddit or Quora where you can post, follow, comment, and reply to people. Built with the MERN stack (React, Express, Node.js, MongoDB). This project was a collaboration with my friend Abdi Suufi, who did the backend while I did the frontend.',
       image: '/images/Tiny.png',
@@ -83,6 +61,28 @@ const Projects: React.FC = () => {
       liveUrl: 'https://tiny-bros-blog.vercel.app/',
       githubUrl: 'https://github.com/Abdi-Suufi/TinyBrosBlog',
       featured: false
+    },
+    {
+      id: '4',
+      title: 'AdhanAlert',
+      description: 'A user-friendly website designed to help users track prayer times in their city. Utilizing the Aladhan API and Geolocation API, it accurately displays prayer schedules based on the user\'s location. It will soon become a web application through ReactJS.',
+      image: '/images/ADHAN.png',
+      category: 'frontend',
+      technologies: ['JavaScript', 'AladhanAPI', 'Bootstrap'],
+      liveUrl: 'https://adhanalert.vercel.app/',
+      githubUrl: 'https://github.com/Gulzey/AdhanAlert',
+      featured: false
+    },
+    {
+      id: '5',
+      title: 'CycleNav',
+      description: 'For my dissertation, I developed a navigation web service tailored specifically for cyclists. While established services like Google Maps exist, my aim was to create a platform that caters to the unique needs of the cycling community.',
+      image: '/images/CYCLENAV.png',
+      category: 'frontend',
+      technologies: ['JavaScript', 'MapBox API', 'Bootstrap'],
+      liveUrl: 'https://cyclenav.netlify.app/',
+      githubUrl: 'https://github.com/Gulzey/Final-Year-Project',
+      featured: true
     },
     {
       id: '6',
