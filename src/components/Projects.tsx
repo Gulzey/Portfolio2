@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
     {
       id: '2',
       title: 'Henna By Hamda',
-      description: ' A gallery style company page for a client created using ReactJS. It showcases a range of henna pieces that the client wanted showcased. ThE Client was satisfied and informed me it boosted her visibility. T.',
+      description: ' A gallery style company page for a client created using ReactJS. It showcases a range of henna pieces that the client wanted showcased. The client was satisfied and informed me it boosted her visibility.',
       image: '/images/Henna.png',
       category: 'frontend',
       technologies: ['ReactJS', 'Vite', 'CSS', 'Lightbox library'],
