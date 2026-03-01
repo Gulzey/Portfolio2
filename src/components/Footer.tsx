@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Github, Linkedin } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -9,22 +9,6 @@ const Footer: React.FC = () => {
     { icon: <Github size={20} />, name: 'GitHub', url: 'https://github.com/Gulzey' },
     { icon: <Linkedin size={20} />, name: 'LinkedIn', url: 'https://www.linkedin.com/in/guled-abdi-b30656194/' }
   ];
-
-  const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
-  ];
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <footer className="text-white py-12">

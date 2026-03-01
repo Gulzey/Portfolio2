@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ThemeSwitcher from './components/ThemeSwitcher';
 import './components/ThemeSwitcher.css';
 import Hero from './components/Hero';
 import About from './components/About';

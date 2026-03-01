@@ -2,16 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Database, Palette, Smartphone, Globe } from 'lucide-react';
 
-const getSummaryTextColor = () => {
-  if (typeof window !== 'undefined') {
-    const lightChecked = document.querySelector('input[value="light"]:checked');
-    if (lightChecked) {
-      return '#1a1a1a';
-    }
-  }
-  return '#fff';
-};
-
 interface Skill {
   name: string;
   level: number;
@@ -22,14 +12,7 @@ interface Skill {
 
 const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [summaryColor, setSummaryColor] = useState(getSummaryTextColor());
   const [theme, setTheme] = useState('light');
-  
-  useEffect(() => {
-    const updateColor = () => setSummaryColor(getSummaryTextColor());
-    document.body.addEventListener('change', updateColor, true);
-    return () => document.body.removeEventListener('change', updateColor, true);
-  }, []);
 
   useEffect(() => {
     const getTheme = () => {

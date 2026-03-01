@@ -2,16 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 
-const getHeaderTextColor = () => {
-  if (typeof window !== 'undefined') {
-    const lightChecked = document.querySelector('input[value="light"]:checked');
-    if (lightChecked) {
-      return '#1a1a1a';
-    }
-  }
-  return '#fff';
-};
-
 interface ContactInfo {
   icon: React.ReactNode;
   title: string;
@@ -29,7 +19,6 @@ const Contact: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [headerColor, setHeaderColor] = useState(getHeaderTextColor());
   const [theme, setTheme] = useState('light');
   useEffect(() => {
     const getTheme = () => {
@@ -41,12 +30,6 @@ const Contact: React.FC = () => {
     document.body.addEventListener('change', handler, true);
     return () => document.body.removeEventListener('change', handler, true);
   }, []);
-  useEffect(() => {
-    const updateColor = () => setHeaderColor(getHeaderTextColor());
-    document.body.addEventListener('change', updateColor, true);
-    return () => document.body.removeEventListener('change', updateColor, true);
-  }, []);
-
   const iconColor = theme === 'light' ? '#000' : '#fff';
 
   const contactInfo: ContactInfo[] = [

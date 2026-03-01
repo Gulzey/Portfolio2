@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { User, MapPin, Calendar, Mail, Phone } from 'lucide-react';
 
 const getHighlightTextColor = () => {
   if (typeof window !== 'undefined') {
@@ -13,14 +12,6 @@ const getHighlightTextColor = () => {
 };
 
 const About: React.FC = () => {
-  const personalInfo = [
-    { icon: <User size={20} />, label: 'Name', value: 'Guled Abdi' },
-    { icon: <MapPin size={20} />, label: 'Location', value: 'Greater Bristol Area' },
-    { icon: <Calendar size={20} />, label: 'Birthday', value: 'January 1, 1990' },
-    { icon: <Mail size={20} />, label: 'Email', value: 'guled-abdi@outlook.com' },
-    { icon: <Phone size={20} />, label: 'Phone', value: '07857760653' },
-  ];
-
   const [highlightColor, setHighlightColor] = useState(getHighlightTextColor());
   useEffect(() => {
     const updateColor = () => setHighlightColor(getHighlightTextColor());

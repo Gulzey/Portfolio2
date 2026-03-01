@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Eye } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -15,19 +15,6 @@ interface Project {
 }
 
 const Projects: React.FC = () => {
-  const [theme, setTheme] = useState('light');
-  
-  useEffect(() => {
-    const getTheme = () => {
-      const checked = document.querySelector('input[name="theme"]:checked') as HTMLInputElement;
-      return checked ? checked.value : 'light';
-    };
-    setTheme(getTheme());
-    const handler = () => setTheme(getTheme());
-    document.body.addEventListener('change', handler, true);
-    return () => document.body.removeEventListener('change', handler, true);
-  }, []);
-
   const projects: Project[] = [
     {
       id: '1',
@@ -43,7 +30,7 @@ const Projects: React.FC = () => {
     {
       id: '2',
       title: 'Henna By Hamda',
-      description: ' A gallery style company page for a client created using ReactJS and threeJS. It showcases a range of henna pieces that the client wanted showcased. ThE Client was satisfied and informed me it boosted her visibility. T.',
+      description: ' A gallery style company page for a client created using ReactJS. It showcases a range of henna pieces that the client wanted showcased. ThE Client was satisfied and informed me it boosted her visibility. T.',
       image: '/images/Henna.png',
       category: 'frontend',
       technologies: ['ReactJS', 'Vite', 'CSS', 'Lightbox library'],
