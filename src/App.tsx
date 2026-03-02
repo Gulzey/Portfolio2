@@ -45,6 +45,15 @@ const App: React.FC = () => {
     return () => document.body.removeEventListener('change', handler, true);
   }, []);
 
+  const applyTheme = (value: 'light' | 'dark' | 'dim') => {
+    const target = document.querySelector(`input[name="theme"][value="${value}"]`) as HTMLInputElement | null;
+    if (target) {
+      target.checked = true;
+      target.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    setTheme(value);
+  };
+
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>
       {/* Vertical Navbar */}
@@ -89,6 +98,52 @@ const App: React.FC = () => {
             <path d="M13 5L8 10L13 15" stroke={theme === 'light' ? '#fff' : '#222'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
+        <div style={{ width: '100%', marginBottom: '4px' }}>
+          <p style={{ fontSize: '0.7rem', letterSpacing: '0.08em', margin: '0 0 8px 0', opacity: 0.75 }}>
+            Theme
+          </p>
+          <div style={{ display: 'flex', gap: '8px' }}>
+            <button
+              onClick={() => applyTheme('light')}
+              aria-label="Use light theme"
+              style={{
+                width: 16,
+                height: 16,
+                borderRadius: '50%',
+                border: theme === 'light' ? '2px solid var(--c-content)' : '1px solid color-mix(in srgb, var(--c-content) 45%, transparent)',
+                background: '#f5f5f5',
+                cursor: 'pointer',
+                padding: 0
+              }}
+            />
+            <button
+              onClick={() => applyTheme('dark')}
+              aria-label="Use dark theme"
+              style={{
+                width: 16,
+                height: 16,
+                borderRadius: '50%',
+                border: theme === 'dark' ? '2px solid var(--c-content)' : '1px solid color-mix(in srgb, var(--c-content) 45%, transparent)',
+                background: '#151515',
+                cursor: 'pointer',
+                padding: 0
+              }}
+            />
+            <button
+              onClick={() => applyTheme('dim')}
+              aria-label="Use dim theme"
+              style={{
+                width: 16,
+                height: 16,
+                borderRadius: '50%',
+                border: theme === 'dim' ? '2px solid var(--c-content)' : '1px solid color-mix(in srgb, var(--c-content) 45%, transparent)',
+                background: '#ff48a9',
+                cursor: 'pointer',
+                padding: 0
+              }}
+            />
+          </div>
+        </div>
         {navItems.map((item) => (
           <a
             key={item.label}

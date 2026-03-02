@@ -347,3 +347,9 @@ section, h1, h2, h3, h4, h5, h6, p, li, a, label, span, .text-gradient {
 .theme-action-button:hover {
   background-color: color-mix(in srgb, var(--c-action) 40%, transparent) !important;
 }
+
+@media (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+}

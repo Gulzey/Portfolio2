@@ -120,7 +120,7 @@ const Experience: React.FC = () => {
           {/* Timeline Line */}
           <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-primary-300"></div>
 
-          <div className="space-y-12">
+          <div className="space-y-10 md:space-y-8">
             {experiences.slice().reverse().map((experience, index) => (
               <motion.div
                 key={experience.id}
@@ -133,17 +133,15 @@ const Experience: React.FC = () => {
                 }`}
               >
                 {/* Timeline Dot */}
-                <div className={`absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary-500 rounded-full border-4 border-white dark:border-dark-800 z-10 ${
-                  index % 2 === 0 ? 'md:translate-x-2' : 'md:-translate-x-6'
-                }`}></div>
+                <div className="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary-500 rounded-full border-4 border-white dark:border-dark-800 z-10"></div>
 
                 {/* Content Card */}
-                <div className={`ml-16 md:ml-0 md:w-5/12 ${
-                  index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
+                <div className={`ml-12 md:ml-0 md:w-[46%] ${
+                  index % 2 === 0 ? 'md:pr-4' : 'md:pl-4'
                 }`}>
                   <motion.div
                     transition={{ type: 'spring', stiffness: 220, damping: 18 }}
-                    className="bg-transparent backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800/70"
+                    className="bg-transparent backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800/70"
                   >
                     {/* Header */}
                     <div className="text-center mb-4">

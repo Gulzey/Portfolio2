@@ -20,15 +20,15 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="flex items-center justify-center relative overflow-hidden" style={{ 
-      minHeight: '70vh',
-      padding: '0',
+      minHeight: '62vh',
+      padding: '16px 0 0 0',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center'
     }}>
       <div className="w-full text-center relative z-10">
         {/* Theme Switcher at the top, centered */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '16px' }}>
           <ThemeSwitcher />
         </div>
         <motion.div
@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
           style={{ 
             display: 'flex',
             flexDirection: 'column',
-            gap: '40px',
+            gap: '24px',
             alignItems: 'center'
           }}
         >
@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
-            style={{ marginTop: '60px' }}
+            style={{ marginTop: '20px' }}
           >
             <motion.button
               animate={{ y: [0, 10, 0] }}

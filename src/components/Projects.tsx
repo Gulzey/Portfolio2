@@ -130,7 +130,7 @@ const Projects: React.FC = () => {
               className="group relative bg-transparent backdrop-blur-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl hover:ring-2 hover:ring-gray-400/50 transition-all duration-300 border border-gray-800/70"
             >
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-36 md:h-48 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -170,8 +170,8 @@ const Projects: React.FC = () => {
               </div>
 
               {/* Project Content */}
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-semibold text-white mb-2">
+              <div className="p-4 md:p-6 text-center">
+                <h3 className="text-lg md:text-xl font-semibold text-white mb-2">
                   {project.title}
                 </h3>
                 <p className="text-gray-300 text-sm leading-relaxed mb-4">
