@@ -38,30 +38,16 @@ const Projects: React.FC = () => {
       githubUrl: 'https://github.com/Gulzey/Henna',
       featured: true
     },
-    {
+    { 
       id: '3',
       title: 'Blog/Forum',
-      description: (
-  <>
-    A social blog forum similar to Reddit or Quora where you can post,
-    follow, comment, and reply to people. Built with the MERN stack.
-    This project was a collaboration with my friend{' '}
-    <a
-      href="https://abdi-rahman-suufi.co.uk/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-blue-500 underline"
-    >
-      Abdi Suufi
-    </a>
-    , who did the backend while I did the frontend.
-  </>
-),
-      category: 'fullstack',
-      technologies: ['React', 'Express', 'Node.js', 'MongoDB', 'MERN'],
-      liveUrl: 'https://tiny-bros-blog.vercel.app/',
-      githubUrl: 'https://github.com/Abdi-Suufi/TinyBrosBlog',
-      featured: false
+      description: 'A social blog forum similar to Reddit or Quora where you can post, follow, comment, and reply to people. Built with the MERN stack (React, Express, Node.js, MongoDB). This project was a collaboration with my friend <a href="https://abdi-rahman-suufi.co.uk/">Abdi Suufi</a>, who did the backend while I did the frontend.', 
+      image: '/images/Tiny.png', 
+      category: 'fullstack', 
+      technologies: ['React', 'Express', 'Node.js', 'MongoDB', 'MERN'], 
+      liveUrl: 'https://tiny-bros-blog.vercel.app/', 
+      githubUrl: 'https://github.com/Abdi-Suufi/TinyBrosBlog', 
+      featured: false 
     },
     {
       id: '4',
