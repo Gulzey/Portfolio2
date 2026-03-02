@@ -55,7 +55,7 @@ const Projects: React.FC = () => {
       Abdi Suufi
     </a>
     , who did the backend while I did the frontend.
-  </>, 
+  </>, ),
       category: 'fullstack',
       technologies: ['React', 'Express', 'Node.js', 'MongoDB', 'MERN'],
       liveUrl: 'https://tiny-bros-blog.vercel.app/',
