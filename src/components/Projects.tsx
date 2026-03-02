@@ -41,7 +41,7 @@ const Projects: React.FC = () => {
     {
       id: '3',
       title: 'Blog/Forum',
-      description: 'A social blog forum similar to Reddit or Quora where you can post, follow, comment, and reply to people. Built with the MERN stack (React, Express, Node.js, MongoDB). This project was a collaboration with my friend Abdi Suufi, who did the backend while I did the frontend.',
+      description: 'A social blog forum similar to Reddit or Quora where you can post, follow, comment, and reply to people. Built with the MERN stack (React, Express, Node.js, MongoDB). This project was a collaboration with my friend <a href="https://abdi-rahman-suufi.co.uk/">Abdi Suufi</a>, who did the backend while I did the frontend.',
       image: '/images/Tiny.png',
       category: 'fullstack',
       technologies: ['React', 'Express', 'Node.js', 'MongoDB', 'MERN'],
